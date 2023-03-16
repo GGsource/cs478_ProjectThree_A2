@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     final String PROJECT_PERM = "edu.uic.cs478.spring23.mp3";
     BroadcastReceiver pReceiver;
@@ -27,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
                 String chosenCity = intent.getStringExtra("sentCity");
                 Toast.makeText(context, "Received Broadcast: " + chosenCity, Toast.LENGTH_SHORT).show();
+                if (Objects.equals(chosenCity, "Orlando")) {
+//                    TODO: Take us to Orlando Activity!
+                    Toast.makeText(context, "Launching Orl Activity!", Toast.LENGTH_SHORT).show();
+                } else { //Only other possibility is NY
+//                    TODO: Take us to New York Activity!
+                    Toast.makeText(context, "Launching NY activity!", Toast.LENGTH_SHORT).show();
+                }
             }
         };
         registerReceiver(pReceiver, receiverFilter);
