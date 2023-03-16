@@ -2,5 +2,5 @@
     <string name="app_name">cs478_ProjectThree_A2</string>
     <string name="welcomeText">Welcome to Application 2!</string>
     <string name="permLab">Connect to A2 via Broadcast</string>
-    <string name="permDesc">Allows the application to send a broadcast to A2 and be properly received.</string>
+    <string name="permDesc">send a broadcast to Application 2</string>
 </resources>
