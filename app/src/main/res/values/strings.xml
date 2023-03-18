@@ -3,4 +3,11 @@
     <string name="welcomeText">Welcome to Application 2!</string>
     <string name="permLab">Connect to A2 via Broadcast</string>
     <string name="permDesc">send a broadcast to Application 2</string>
+    <string name="tourist_attraction_1">Tourist Attraction 1</string>
+    <string name="tourist_attraction_2">Tourist Attraction 2</string>
+    <string name="tourist_attraction_3">Tourist Attraction 3</string>
+    <string name="tourist_attraction_4">Tourist Attraction 4</string>
+    <string name="tourist_attraction_5">Tourist Attraction 5</string>
+    <string name="tourTitle">Orlando Tourist Attractions!</string>
+    <string name="main_a2_activity_title">Main A2 Activity</string>
 </resources>

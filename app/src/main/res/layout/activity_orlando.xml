@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_darker"
+    android:orientation="vertical"
+    android:padding="15sp"
+    tools:context=".OrlandoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_a2_activity_title"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_margin="10sp"
+            android:textColor="@color/primary_darkest" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragContainer"
+            android:name="edu.uic.cs478.s2023.cs478_projectthree_a2.OrlandoListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_orlando_list" />
+    </LinearLayout>
+
+</FrameLayout>

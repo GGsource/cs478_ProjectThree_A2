@@ -1,5 +1,7 @@
 package edu.uic.cs478.s2023.cs478_projectthree_a2;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.BroadcastReceiver;
@@ -7,6 +9,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
@@ -30,13 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onReceive(Context context, Intent intent) {
                 String chosenCity = intent.getStringExtra("sentCity");
                 Toast.makeText(context, "Received Broadcast: " + chosenCity, Toast.LENGTH_SHORT).show();
-                if (Objects.equals(chosenCity, "Orlando")) {
-//                    TODO: Take us to Orlando Activity!
-                    Toast.makeText(context, "Launching Orl Activity!", Toast.LENGTH_SHORT).show();
-                } else { //Only other possibility is NY
-//                    TODO: Take us to New York Activity!
-                    Toast.makeText(context, "Launching NY activity!", Toast.LENGTH_SHORT).show();
-                }
+                launchCorrectActivity(context, chosenCity);
             }
         };
         registerReceiver(pReceiver, receiverFilter);
@@ -46,5 +46,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         unregisterReceiver(pReceiver);
+    }
+
+    private void launchCorrectActivity(Context context, String givenCity) {
+        Intent launchCityIntent;
+        if (Objects.equals(givenCity, "Orlando")) {
+            Toast.makeText(context, "Launching Orl Activity!", Toast.LENGTH_SHORT).show();
+            launchCityIntent = new Intent(MainActivity.this, OrlandoActivity.class);
+        } else { //Only other possibility is NY
+            Toast.makeText(context, "Launching NY activity!", Toast.LENGTH_SHORT).show();
+            launchCityIntent = new Intent(MainActivity.this, NewYorkActivity.class);
+        }
+        startActivity(launchCityIntent);
     }
 }
