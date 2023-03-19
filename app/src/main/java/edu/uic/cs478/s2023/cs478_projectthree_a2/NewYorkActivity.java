@@ -1,17 +1,22 @@
 package edu.uic.cs478.s2023.cs478_projectthree_a2;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentContainerView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-public class NewYorkActivity extends FragmentActivity {
+public class NewYorkActivity extends AppCompatActivity {
 
     final NewYorkWebFragment webFragment = new NewYorkWebFragment();
     FragmentManager fragManager;
@@ -61,5 +66,25 @@ public class NewYorkActivity extends FragmentActivity {
             landscapeLayoutClose();
         }
         super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_a2, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.itemNY:
+                Intent i = new Intent(this,NewYorkActivity.class);
+                this.startActivity(i);
+                return true;
+            case R.id.itemOrlando:
+                Intent i2 = new Intent(this,OrlandoActivity.class);
+                this.startActivity(i2);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

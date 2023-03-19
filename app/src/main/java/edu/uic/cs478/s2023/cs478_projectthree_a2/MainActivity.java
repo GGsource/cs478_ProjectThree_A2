@@ -11,6 +11,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -65,5 +66,20 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_a2, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.itemNY:
+                Intent i = new Intent(this,NewYorkActivity.class);
+                this.startActivity(i);
+                return true;
+            case R.id.itemOrlando:
+                Intent i2 = new Intent(this,OrlandoActivity.class);
+                this.startActivity(i2);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
