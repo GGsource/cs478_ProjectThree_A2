@@ -2,6 +2,28 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--|~~~~~~CS 478 - Project 3: Application 2 ~~~~~~|
+    Course: CS 478 Spring 2023
+    Name: Geovani Gonzalez
+    NetID: ggonza55@uic.edu | UIN: 657437605
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    Description: Receiver Application which listens for
+    broadcast intents with the relative permission. If
+    the intent has the permission, this app takes its
+    accompanying city string to launch the correct activity
+    and show tourist attractions in two fragments which
+    change based on orientation.
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    Started: March 9th, 2023
+    Completed: March 19th, 2023
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+    Notes: In class, App 2 was shown to receive the
+    broadcast intent by being in split-screen with App 1
+    because App 2 is not able to receive intents while it
+    is stopped. Thus this project is made with the assumption
+    that this is how it will be used and graded.
+    |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|-->
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <permission
