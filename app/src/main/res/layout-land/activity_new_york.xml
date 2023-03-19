@@ -33,12 +33,14 @@
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragListContainerNY"
                 android:name="edu.uic.cs478.s2023.cs478_projectthree_a2.NewYorkListFragment"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0sp"
                 android:layout_height="match_parent"
                 tools:layout="@layout/fragment_new_york_list" />
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragWebContainerNY"
                 android:name="edu.uic.cs478.s2023.cs478_projectthree_a2.NewYorkWebFragment"
+                android:layout_weight="0"
                 android:layout_width="0sp"
                 android:layout_height="match_parent"
                 tools:layout="@layout/fragment_new_york_web" />

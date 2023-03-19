@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class OrlandoViewModel extends ViewModel {
+public class SharedViewModel extends ViewModel {
     private final MutableLiveData<Integer> selectedItem = new MutableLiveData<Integer>();
     public void selectItem(Integer item) {
         selectedItem.setValue(item);

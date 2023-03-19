@@ -10,15 +10,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class OrlandoActivity extends FragmentActivity {
 
     final OrlandoWebFragment webFragment = new OrlandoWebFragment();
     FragmentManager fragManager;
-    FragmentContainerView listContainer, webContainer;
+    FragmentContainerView listContainerOrlando, webContainerOrlando;
 
-    OrlandoViewModel viewModel;
+    SharedViewModel viewModel;
     Boolean isWebOpen = false;
 
     @Override
@@ -26,12 +25,12 @@ public class OrlandoActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orlando);
 
-        listContainer = (FragmentContainerView) findViewById(R.id.fragListContainer);
-        webContainer = (FragmentContainerView) findViewById(R.id.fragWebContainer);
+        listContainerOrlando = (FragmentContainerView) findViewById(R.id.fragListContainerOrlando);
+        webContainerOrlando = (FragmentContainerView) findViewById(R.id.fragWebContainerOrlando);
         fragManager =  getSupportFragmentManager();
 
         final FragmentTransaction fragTransaction = fragManager.beginTransaction();
-        fragTransaction.replace(R.id.fragListContainer, new OrlandoListFragment());
+        fragTransaction.replace(R.id.fragListContainerOrlando, new OrlandoListFragment());
         fragTransaction.commit();
 //        Reset the layout every time something changes on backstack
 //        fragManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
@@ -41,12 +40,12 @@ public class OrlandoActivity extends FragmentActivity {
 //            }
 //        });
 
-        viewModel = new ViewModelProvider(this).get(OrlandoViewModel.class);
+        viewModel = new ViewModelProvider(this).get(SharedViewModel.class);
         viewModel.getSelectedItem().observe(this, item ->{
             if (!webFragment.isAdded()) {
                 Log.d("WEBFRAG", "Web fragment not currently added, going to add.");
                 FragmentTransaction secondTransaction = fragManager.beginTransaction();
-                secondTransaction.add(R.id.fragWebContainer, webFragment);
+                secondTransaction.add(R.id.fragWebContainerOrlando, webFragment);
                 secondTransaction.addToBackStack(null);
                 secondTransaction.commit();
                 fragManager.executePendingTransactions();
@@ -68,13 +67,13 @@ public class OrlandoActivity extends FragmentActivity {
 //        }
 //    }
     public void landscapeLayoutOpen() {
-        listContainer.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
-        webContainer.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 2f));
+        listContainerOrlando.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
+        webContainerOrlando.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 2f));
         isWebOpen = true;
     }
     public void landscapeLayoutClose() {
-        listContainer.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        webContainer.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT)); //Web now has 0 width, not visible.
+        listContainerOrlando.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        webContainerOrlando.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT)); //Web now has 0 width, not visible.
         isWebOpen = false;
     }
 

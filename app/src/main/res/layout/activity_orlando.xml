@@ -31,13 +31,13 @@
             android:orientation="horizontal">
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragListContainer"
+                android:id="@+id/fragListContainerOrlando"
                 android:name="edu.uic.cs478.s2023.cs478_projectthree_a2.OrlandoListFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:layout="@layout/fragment_orlando_list" />
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/fragWebContainer"
+                android:id="@+id/fragWebContainerOrlando"
                 android:name="edu.uic.cs478.s2023.cs478_projectthree_a2.OrlandoWebFragment"
                 android:layout_width="0sp"
                 android:layout_height="match_parent"

@@ -11,7 +11,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class OrlandoWebFragment extends Fragment {
+public class NewYorkWebFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,19 +22,19 @@ public class OrlandoWebFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_orlando_web, container, false);
+        View v = inflater.inflate(R.layout.fragment_new_york_web, container, false);
 
         int index = -1;
         Bundle data = getArguments();
         if (data != null) {
-        index = data.getInt("siteIndex", -1);
+            index = data.getInt("siteIndex", -1);
         }
-        WebView webber = v.findViewById(R.id.webFragOrlando);
+        WebView webber = v.findViewById(R.id.webFragNY);
         webber.setWebViewClient(new WebViewClient());
         WebSettings settings = webber.getSettings();
         settings.setJavaScriptEnabled(true);
         if (index != -1) {
-        webber.loadUrl(ListValues.itemSitesOrlando[index]);
+            webber.loadUrl(ListValues.itemSitesNY[index]);
         } else {
             webber.loadUrl("https://www.google.com");
         }

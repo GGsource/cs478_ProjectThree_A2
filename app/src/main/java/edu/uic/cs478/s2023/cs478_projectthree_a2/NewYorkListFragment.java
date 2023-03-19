@@ -16,9 +16,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class OrlandoListFragment extends Fragment {
+public class NewYorkListFragment extends Fragment {
 
-    ListView orlandoList;
+    ListView nyList;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
 
@@ -31,41 +31,38 @@ public class OrlandoListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_orlando_list, container, false);
+        View v =  inflater.inflate(R.layout.fragment_new_york_list, container, false);
 
-        orlandoList = v.findViewById(R.id.orlandoList);
-        list = new ArrayList<>(Arrays.asList(ListValues.itemTitlesOrlando));
+        nyList = v.findViewById(R.id.nyList);
+        list = new ArrayList<>(Arrays.asList(ListValues.itemTitlesNY));
         adapter = new ArrayAdapter<>(container.getContext(), android.R.layout.simple_list_item_1, list);
-        orlandoList.setAdapter(adapter);
+        nyList.setAdapter(adapter);
 
-        orlandoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        nyList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 view.setSelected(true);
-//                view.setBackgroundResource(R.color.primary_darker);
-//                TextView tV = (TextView) view.findViewById(view.getId());
-//                Toast.makeText(view.getContext(), "You clicked: " + tV.getText().toString() + "\n index: " + i, Toast.LENGTH_SHORT).show();
 //                Now we know the index of the site to show. Switch the fragment to web view.
 //                First Bundle the index for sending
                 Bundle data = new Bundle();
                 data.putInt("siteIndex", i);
 //                Now prepare to switch fragments
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                OrlandoWebFragment newFrag = new OrlandoWebFragment();
+                NewYorkWebFragment newFrag = new NewYorkWebFragment();
                 newFrag.setArguments(data);
                 int orientation = getResources().getConfiguration().orientation;
                 if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    transaction.replace(R.id.fragListContainerOrlando, newFrag, null)
+                    transaction.replace(R.id.fragListContainerNY, newFrag, null)
                             .setReorderingAllowed(true)
                             .addToBackStack("webFrag")
                             .commit();
                 } else {
-                    transaction.add(R.id.fragWebContainerOrlando, newFrag, null)
+                    transaction.add(R.id.fragWebContainerNY, newFrag, null)
                             .setReorderingAllowed(true)
                             .addToBackStack("webFrag")
                             .commit();
-                OrlandoActivity parentActivity = (OrlandoActivity) getActivity();
-                parentActivity.landscapeLayoutOpen();
+                    NewYorkActivity parentActivity = (NewYorkActivity) getActivity();
+                    parentActivity.landscapeLayoutOpen();
                 }
             }
         });
