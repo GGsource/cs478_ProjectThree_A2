@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        unregisterReceiver(pReceiver);
+//        unregisterReceiver(pReceiver);
     }
 
     private void launchCorrectActivity(Context context, String givenCity) {
