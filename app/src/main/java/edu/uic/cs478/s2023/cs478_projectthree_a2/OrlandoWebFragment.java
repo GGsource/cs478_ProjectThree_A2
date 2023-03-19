@@ -24,13 +24,20 @@ public class OrlandoWebFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_orlando_web, container, false);
 
+        int index = -1;
         Bundle data = getArguments();
-        int index = data.getInt("siteIndex", -1);
+        if (data != null) {
+        index = data.getInt("siteIndex", -1);
+        }
         WebView webber = v.findViewById(R.id.webFrag);
         webber.setWebViewClient(new WebViewClient());
         WebSettings settings = webber.getSettings();
         settings.setJavaScriptEnabled(true);
+        if (index != -1) {
         webber.loadUrl(ListValues.itemSites[index]);
+        } else {
+            webber.loadUrl("https://www.google.com");
+        }
 
         return v;
     }

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -58,5 +59,11 @@ public class MainActivity extends AppCompatActivity {
             launchCityIntent = new Intent(MainActivity.this, NewYorkActivity.class);
         }
         startActivity(launchCityIntent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_a2, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
